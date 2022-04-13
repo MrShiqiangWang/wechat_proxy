@@ -6,8 +6,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="wechatproxy" />
+        <module name="encode" />
+        <module name="core" />
+        <module name="model" />
+        <module name="receiver" />
+        <module name="tools" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wechatproxy" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="core" options="-parameters" />
+      <module name="encode" options="-parameters" />
+      <module name="model" options="-parameters" />
+      <module name="receiver" options="-parameters" />
+      <module name="tools" options="-parameters" />
+    </option>
   </component>
 </project>
