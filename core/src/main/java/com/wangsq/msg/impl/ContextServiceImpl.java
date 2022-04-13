@@ -40,29 +40,38 @@ public class ContextServiceImpl implements ContextService {
         return context;
     }
 
+    /**
+     * 填充用户信息
+     *
+     * @param context
+     * @param msg
+     */
     private void fillUserInfo(Context context, BaseWechatMsg msg) {
         List<CompletionStage<Pair<String, Boolean>>> stages = Lists.newArrayList();
-        stages.add(ThreadUtils.supply(() -> {
-            String fromUser = msg.getFromUser();
-            if (StringUtils.isNotEmpty(fromUser)) {
-                UserProfile fromUserProfile = userProfileService.queryUserById(fromUser);
-                context.setFromUser(fromUserProfile);
-            }
-            return Pair.of("fromUser", true);
-        }));
-        stages.add(ThreadUtils.supply(() -> {
-            String toUser = msg.getToUser();
-            if (StringUtils.isNotEmpty(toUser)) {
-                UserProfile toUserProfile = userProfileService.queryUserById(toUser);
-                context.setFromUser(toUserProfile);
-            }
-            return Pair.of("toUser", true);
-        }));
+        stages.add(fillUser(context, msg.getFromUser()));
+        stages.add(fillUser(context, msg.getToUser()));
         CompletionStage<List<Pair<String, Boolean>>> batchThreads = WrapThreadUtils.batchExecuteThreads(stages);
         try {
             batchThreads.toCompletableFuture().get(5000, TimeUnit.MILLISECONDS);
         } catch (Exception e) {
             LOGGER.error("批量执行失败", e);
         }
+    }
+
+    /**
+     * 填充用户信息
+     *
+     * @param context
+     * @param user
+     * @return
+     */
+    public CompletionStage<Pair<String, Boolean>> fillUser(Context context, String user) {
+        return ThreadUtils.supply(() -> {
+            if (StringUtils.isNotEmpty(user)) {
+                UserProfile fromUserProfile = userProfileService.queryUserById(user);
+                context.setFromUser(fromUserProfile);
+            }
+            return Pair.of("fromUser", true);
+        });
     }
 }
