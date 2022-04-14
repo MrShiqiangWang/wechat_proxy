@@ -13,6 +13,7 @@
         <module name="model" />
         <module name="tools" />
         <module name="user" />
+        <module name="config" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +22,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="config" options="-parameters" />
       <module name="constant" options="-parameters" />
       <module name="core" options="-parameters" />
       <module name="encode" options="-parameters" />

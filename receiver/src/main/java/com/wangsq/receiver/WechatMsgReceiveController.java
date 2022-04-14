@@ -19,7 +19,7 @@ public class WechatMsgReceiveController {
     private WechatMsgService wechatMsgService;
 
     @PostMapping(value = "wechat/msg")
-    public ResponseEntity<Object> receiveWechatMsg(@RequestBody Object body) {
+    public ResponseEntity<Object> receiveWechatMsg(@RequestBody String body) {
         String result = wechatMsgService.process(body);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }

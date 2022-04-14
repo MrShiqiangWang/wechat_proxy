@@ -9,7 +9,7 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public class BaseWechatMsg {
+public abstract class BaseWechatMsg {
 
     private String fromUser;
 

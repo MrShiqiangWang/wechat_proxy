@@ -2,6 +2,7 @@ package com.wangsq.msg;
 
 import com.wangsq.context.Context;
 import com.wangsq.wechat.BaseWechatMsg;
+import me.chanjar.weixin.mp.config.WxMpConfigStorage;
 
 /**
  * @author 福泰
@@ -12,8 +13,9 @@ public interface ContextService {
      * 构建上下文
      *
      * @param msg
+     * @param configStorage
      * @param body
      * @return
      */
-    Context setUpContext(BaseWechatMsg msg, Object body);
+    Context setUpContext(BaseWechatMsg msg, WxMpConfigStorage configStorage, String body);
 }

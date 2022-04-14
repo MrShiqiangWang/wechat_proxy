@@ -11,5 +11,5 @@ public interface WechatMsgService {
      * @param body
      * @return
      */
-    String process(Object body);
+    String process(String body);
 }
