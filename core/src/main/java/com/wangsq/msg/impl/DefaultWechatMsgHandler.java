@@ -14,8 +14,7 @@ import org.springframework.stereotype.Service;
 public class DefaultWechatMsgHandler implements WechatMsgHandler {
     @Override
     public BaseWechatResp handle(Context context, BaseWechatMsg msg) {
-        // TODO: 2022/4/13  
-        return null;
+        return BaseWechatResp.defaultResp();
     }
 
     @Override

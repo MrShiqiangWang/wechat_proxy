@@ -21,6 +21,7 @@
         <module>../core</module>
         <module>../model</module>
         <module>../user</module>
+        <module>../constant</module>
     </modules>
 
     <properties>

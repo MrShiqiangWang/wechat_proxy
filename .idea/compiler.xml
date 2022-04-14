@@ -8,8 +8,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="encode" />
         <module name="core" />
-        <module name="model" />
+        <module name="constant" />
         <module name="receiver" />
+        <module name="model" />
         <module name="tools" />
         <module name="user" />
       </profile>
@@ -20,6 +21,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="constant" options="-parameters" />
       <module name="core" options="-parameters" />
       <module name="encode" options="-parameters" />
       <module name="model" options="-parameters" />

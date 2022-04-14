@@ -31,7 +31,7 @@ public class WechatMsgHandlerFactory {
         Map<String, WechatMsgHandler> wechatMsgHandlerMap = BeanUtils.getBeanOfType(WechatMsgHandler.class);
         for (Entry<String, WechatMsgHandler> entry : wechatMsgHandlerMap.entrySet()) {
             WechatMsgHandler handler = entry.getValue();
-            if (handler.isMatch(context, msg)) {
+            if (!handler.getClass().equals(DefaultWechatMsgHandler.class) && handler.isMatch(context, msg)) {
                 return handler;
             }
         }
