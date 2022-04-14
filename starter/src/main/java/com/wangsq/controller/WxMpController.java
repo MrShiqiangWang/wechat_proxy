@@ -1,4 +1,4 @@
-package com.wangsq.receiver;
+package com.wangsq.controller;
 
 import com.google.common.collect.Maps;
 import com.wangsq.constant.AppConstant;
@@ -16,10 +16,10 @@ import java.util.Map;
 
 /**
  * @author 福泰
- * @version WechatMsgReceiveController.java, v 0.1 2022年04月13日 10:30 AM 福泰
+ * @version WxMpController.java, v 0.1 2022年04月13日 10:30 AM 福泰
  */
 @RestController
-public class WechatMsgReceiveController {
+public class WxMpController {
 
     @Autowired
     private WechatMsgService wechatMsgService;

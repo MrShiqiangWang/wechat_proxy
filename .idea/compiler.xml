@@ -6,17 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="encode" />
-        <module name="core" />
-        <module name="constant" />
-        <module name="receiver" />
-        <module name="model" />
-        <module name="tools" />
-        <module name="user" />
-        <module name="config" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="config" target="8" />
+      <module name="constant" target="8" />
+      <module name="core" target="8" />
+      <module name="encode" target="8" />
+      <module name="model" target="8" />
+      <module name="receiver" target="8" />
+      <module name="tools" target="8" />
+      <module name="user" target="8" />
       <module name="wechatproxy" target="8" />
     </bytecodeTargetLevel>
   </component>
