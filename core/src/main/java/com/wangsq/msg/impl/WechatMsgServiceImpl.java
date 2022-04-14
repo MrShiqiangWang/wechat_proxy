@@ -13,6 +13,8 @@ import me.chanjar.weixin.mp.config.WxMpConfigStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 /**
  * @author 福泰
  * @version WechatMsgServiceImpl.java, v 0.1 2022年04月13日 10:39 AM 福泰
@@ -29,12 +31,12 @@ public class WechatMsgServiceImpl implements WechatMsgService {
     private WxMpConfigStorage       wxMpConfigStorage;
 
     @Override
-    public String process(String body) {
+    public String process(Map<String, Object> requestMsg) {
 
         //解码
-        BaseWechatMsg msg = DecodeUtils.decode(wxMpConfigStorage, body);
+        BaseWechatMsg msg = DecodeUtils.decode(wxMpConfigStorage, requestMsg);
         //构建上下文
-        Context context = contextService.setUpContext(msg, wxMpConfigStorage, body);
+        Context context = contextService.setUpContext(msg, wxMpConfigStorage, requestMsg);
         //工厂获取处理器
         WechatMsgHandler handler = factory.getHandler(context, msg);
         //处理
