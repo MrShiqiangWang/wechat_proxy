@@ -1,9 +1,6 @@
 package com.wangsq.router;
 
-import com.wangsq.handler.WechatWxMpMessageHandler;
-import com.wangsq.tools.BeanUtils;
 import me.chanjar.weixin.mp.api.WxMpMessageRouter;
-import me.chanjar.weixin.mp.api.WxMpMessageRouterRule;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.api.impl.WxMpServiceImpl;
 import me.chanjar.weixin.mp.config.WxMpConfigStorage;
@@ -12,9 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.Map;
-import java.util.Map.Entry;
 
 /**
  * @author 福泰
@@ -66,14 +60,6 @@ public class AppRouterConfig {
      */
     @Bean
     public WxMpMessageRouter wxMpMessageRouter(WxMpService wxMpService) {
-        WxMpMessageRouter router = new WxMpMessageRouter(wxMpService);
-        Map<String, WechatWxMpMessageHandler> wxMpMessageHandlerMap = BeanUtils.getBeanOfType(WechatWxMpMessageHandler.class);
-        for (Entry<String, WechatWxMpMessageHandler> entry : wxMpMessageHandlerMap.entrySet()) {
-            WxMpMessageRouterRule rule = router.rule();
-            WechatWxMpMessageHandler handler = entry.getValue();
-            handler.initRouterRule(rule);
-            rule.handler(handler).end();
-        }
-        return router;
+        return new WxMpMessageRouter(wxMpService);
     }
 }

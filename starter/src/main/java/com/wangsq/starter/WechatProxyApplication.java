@@ -3,6 +3,7 @@ package com.wangsq.starter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author 福泰
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @EnableAutoConfiguration
+@ComponentScan(value = "com.wangsq")
 public class WechatProxyApplication {
 
     public static void main(String[] args) {

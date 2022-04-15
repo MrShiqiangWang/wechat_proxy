@@ -23,6 +23,13 @@ public class BeanUtils implements ApplicationContextAware {
         return null;
     }
 
+    public static <T> T getBean(Class<T> clazz) {
+        if (APPLICATION_CONTEXT != null) {
+            return APPLICATION_CONTEXT.getBean(clazz);
+        }
+        return null;
+    }
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         APPLICATION_CONTEXT = applicationContext;
