@@ -1,0 +1,6 @@
+com:
+  wechatproxy:
+    secret: 5b8529910bae98e55113b98f76882e72
+    appId: wx6879a8db66574693
+    token:
+    aesKey:
