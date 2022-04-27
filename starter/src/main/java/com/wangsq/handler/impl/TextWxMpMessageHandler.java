@@ -2,7 +2,7 @@ package com.wangsq.handler.impl;
 
 import com.wangsq.context.KefuContextService;
 import com.wangsq.handler.WechatWxMpMessageHandler;
-import com.wangsq.kefu.KefuService;
+import com.wangsq.service.KefuService;
 import com.wangsq.model.model.kefu.KefuContext;
 import com.wangsq.model.model.kefu.UserOutput;
 import me.chanjar.weixin.common.api.WxConsts.XmlMsgType;

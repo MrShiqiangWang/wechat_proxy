@@ -1,4 +1,4 @@
-package com.wangsq.service.user;
+package com.wangsq.service;
 
 import com.wangsq.model.model.userprofile.UserProfile;
 
