@@ -2,6 +2,7 @@ package com.wangsq.context.impl;
 
 import com.wangsq.context.KefuContextService;
 import com.wangsq.model.model.kefu.KefuContext;
+import com.wangsq.model.model.kefu.UserInput;
 import com.wangsq.model.model.userprofile.UserProfile;
 import com.wangsq.service.user.UserProfileService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
@@ -21,10 +22,24 @@ public class KefuContextServiceImpl implements KefuContextService {
     @Override
     public KefuContext setUpContext(WxMpXmlMessage wxMessage) {
         KefuContext kefuContext = new KefuContext();
+
+        //用户
         UserProfile fromUser = userProfileService.findUserById(wxMessage.getFromUser());
-        UserProfile toUser = userProfileService.findUserById(wxMessage.getToUser());
         kefuContext.setFromUser(fromUser);
+
+        //用户
+        UserProfile toUser = userProfileService.findUserById(wxMessage.getToUser());
         kefuContext.setToUser(toUser);
+
+        //用户输入
+        String content = wxMessage.getContent();
+        UserInput input = new UserInput();
+        input.setWords(content);
+        kefuContext.setInput(input);
+
+        //微信信息
+        kefuContext.setMessage(wxMessage);
+
         return kefuContext;
     }
 }

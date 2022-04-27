@@ -23,7 +23,7 @@ public class KefuContext {
     private UserInput input;
 
     //输出
-    private UserOutput result;
+    private UserOutput result = new UserOutput();
 
     //微信消息
     private WxMpXmlMessage message;
