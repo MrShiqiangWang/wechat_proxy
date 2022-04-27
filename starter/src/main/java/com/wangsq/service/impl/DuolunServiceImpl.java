@@ -40,8 +40,12 @@ public class DuolunServiceImpl implements DuolunService {
         String words = kefuContext.getInput().getWords();
         //解析实体
         EntityResult entityResult = entityService.process(kefuContext);
+        kefuContext.setEntityResult(entityResult);
+
         //解析意图
         IntentResult intentResult = intentService.process(kefuContext);
+        kefuContext.setIntentResult(intentResult);
+
         //参数
         Map<String, Object> params = Maps.newHashMap();
         params.put("topic", JSON.toJSONString(intentResult));

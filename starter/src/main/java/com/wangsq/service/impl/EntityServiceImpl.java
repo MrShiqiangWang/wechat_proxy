@@ -1,6 +1,7 @@
 package com.wangsq.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Maps;
 import com.wangsq.config.AppConfig;
 import com.wangsq.model.model.entity.EntityResult;
 import com.wangsq.model.model.kefu.KefuContext;
@@ -21,8 +22,11 @@ public class EntityServiceImpl implements EntityService {
 
     @Override
     public Map<String, Object> setUpParams(KefuContext kefuContext) {
-        // TODO: 2022/4/27  
-        return null;
+        Map<String, Object> params = Maps.newHashMap();
+        String words = kefuContext.getInput().getWords();
+        params.put("words", words);
+        params.put("user", kefuContext.getFromUser());
+        return params;
     }
 
     @Override
