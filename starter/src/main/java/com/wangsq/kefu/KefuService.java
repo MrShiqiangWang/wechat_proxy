@@ -1,7 +1,7 @@
 package com.wangsq.kefu;
 
 import com.wangsq.model.model.kefu.KefuContext;
-import com.wangsq.model.model.kefu.KefuResult;
+import com.wangsq.model.model.kefu.UserOutput;
 
 /**
  * @author 福泰
@@ -14,5 +14,5 @@ public interface KefuService {
      * @param kefuContext
      * @return
      */
-    KefuResult process(KefuContext kefuContext);
+    UserOutput process(KefuContext kefuContext);
 }
