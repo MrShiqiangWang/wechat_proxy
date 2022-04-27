@@ -6,11 +6,11 @@ import lombok.Setter;
 
 /**
  * @author 福泰
- * @version KefuResult.java, v 0.1 2022年04月15日 5:40 PM 福泰
+ * @version UserOutput.java, v 0.1 2022年04月15日 5:40 PM 福泰
  */
 @Setter
 @Getter
-public class KefuResult {
+public class UserOutput {
 
     //发送者
     private UserProfile fromUser;

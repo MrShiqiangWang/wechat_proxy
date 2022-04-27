@@ -1,10 +1,10 @@
 package com.wangsq.handler.impl;
 
-import com.wangsq.context.ContextService;
+import com.wangsq.context.KefuContextService;
 import com.wangsq.handler.WechatWxMpMessageHandler;
 import com.wangsq.kefu.KefuService;
 import com.wangsq.model.model.kefu.KefuContext;
-import com.wangsq.model.model.kefu.KefuResult;
+import com.wangsq.model.model.kefu.UserOutput;
 import me.chanjar.weixin.common.api.WxConsts.XmlMsgType;
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpMessageRouterRule;
@@ -21,12 +21,12 @@ import java.util.Map;
  * @version TextWxMpMessageHandler.java, v 0.1 2022年04月15日 5:32 PM 福泰
  */
 @Service
-public class TextWxMpMessageHandler implements WechatWxMpMessageHandler<KefuResult> {
+public class TextWxMpMessageHandler implements WechatWxMpMessageHandler<UserOutput> {
     @Autowired
     private KefuService kefuService;
 
     @Autowired
-    private ContextService contextService;
+    private KefuContextService contextService;
 
     @Override
     public void initRouterRule(WxMpMessageRouterRule rule) {
@@ -34,13 +34,13 @@ public class TextWxMpMessageHandler implements WechatWxMpMessageHandler<KefuResu
     }
 
     @Override
-    public WxMpXmlOutMessage digestMessage(WxMpXmlMessage message, KefuResult result) {
+    public WxMpXmlOutMessage digestMessage(WxMpXmlMessage message, UserOutput result) {
         return WxMpXmlOutMessage.TEXT().fromUser(result.getFromUser().getName()).toUser(result.getToUser().getName()).content(
                 result.getMessage()).build();
     }
 
     @Override
-    public KefuResult handleMsg(WxMpXmlMessage wxMessage, Map<String, Object> context, WxMpService wxMpService,
+    public UserOutput handleMsg(WxMpXmlMessage wxMessage, Map<String, Object> context, WxMpService wxMpService,
                                 WxSessionManager sessionManager) {
         KefuContext kefuContext = contextService.setUpContext(wxMessage);
         return this.kefuService.process(kefuContext);
