@@ -4,7 +4,7 @@ import com.wangsq.context.KefuContextService;
 import com.wangsq.model.model.kefu.KefuContext;
 import com.wangsq.model.model.kefu.UserInput;
 import com.wangsq.model.model.userprofile.UserProfile;
-import com.wangsq.service.user.UserProfileService;
+import com.wangsq.service.UserProfileService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

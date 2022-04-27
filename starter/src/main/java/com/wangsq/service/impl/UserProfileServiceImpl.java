@@ -1,7 +1,7 @@
-package com.wangsq.service.user.impl;
+package com.wangsq.service.impl;
 
 import com.wangsq.model.model.userprofile.UserProfile;
-import com.wangsq.service.user.UserProfileService;
+import com.wangsq.service.UserProfileService;
 import org.springframework.stereotype.Service;
 
 /**

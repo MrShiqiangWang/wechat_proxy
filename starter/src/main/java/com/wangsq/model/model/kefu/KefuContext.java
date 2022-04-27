@@ -1,5 +1,7 @@
 package com.wangsq.model.model.kefu;
 
+import com.wangsq.model.model.entity.EntityResult;
+import com.wangsq.model.model.entity.IntentResult;
 import com.wangsq.model.model.userprofile.UserProfile;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,5 +29,11 @@ public class KefuContext {
 
     //微信消息
     private WxMpXmlMessage message;
+
+    //意图信息
+    private IntentResult intentResult;
+
+    //实体信息
+    private EntityResult entityResult;
 
 }

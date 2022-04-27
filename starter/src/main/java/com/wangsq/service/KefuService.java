@@ -1,4 +1,4 @@
-package com.wangsq.kefu;
+package com.wangsq.service;
 
 import com.wangsq.model.model.kefu.KefuContext;
 import com.wangsq.model.model.kefu.UserOutput;
